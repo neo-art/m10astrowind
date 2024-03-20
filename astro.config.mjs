@@ -5,6 +5,7 @@ import { defineConfig, squooshImageService } from 'astro/config';
 
 import storyblok from '@storyblok/astro';
 import { loadEnv } from 'vite';
+import basicSsl from '@vitejs/plugin-basic-ssl';
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -105,6 +106,10 @@ export default defineConfig({
       alias: {
         '~': path.resolve(__dirname, './src'),
       },
+    },
+    plugins: [basicSsl()],
+    server: {
+      https: true,
     },
   },
 });
