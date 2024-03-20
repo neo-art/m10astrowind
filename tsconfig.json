@@ -2,6 +2,8 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "strictNullChecks": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "allowJs": true,
     "baseUrl": ".",
     "paths": {

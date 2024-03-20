@@ -42,8 +42,13 @@ export default defineConfig({
     }),
     storyblok({
       accessToken: env.STORYBLOK_TOKEN,
+      bridge: true,
+      enableFallbackComponent: true,
       components: {
-        page: 'pages/index',
+        page: 'storyblok/Page',
+        feature: 'storyblok/Feature',
+        grid: 'storyblok/Grid',
+        teaser: 'storyblok/Teaser',
         // Add your components here
       },
       apiOptions: {
