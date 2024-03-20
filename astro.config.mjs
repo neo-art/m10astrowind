@@ -3,6 +3,9 @@ import { fileURLToPath } from 'url';
 
 import { defineConfig, squooshImageService } from 'astro/config';
 
+import storyblok from '@storyblok/astro';
+import { loadEnv } from 'vite';
+
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
@@ -16,6 +19,7 @@ import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/uti
 import { ANALYTICS, SITE } from './src/utils/config.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const env = loadEnv("", process.cwd(), 'STORYBLOK');
 
 const whenExternalScripts = (items = []) =>
   ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown
@@ -34,6 +38,17 @@ export default defineConfig({
   integrations: [
     tailwind({
       applyBaseStyles: false,
+    }),
+    storyblok({
+      accessToken: env.STORYBLOK_TOKEN,
+      components: {
+        page: 'pages/index',
+        // Add your components here
+      },
+      apiOptions: {
+        // Choose your Storyblok space region
+        region: 'eu', // optional,  or 'eu' (default)
+      },
     }),
     sitemap(),
     mdx(),
