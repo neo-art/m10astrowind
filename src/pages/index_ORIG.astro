@@ -12,20 +12,10 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
-import { useStoryblokApi } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-
-
 const metadata = {
   title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
   ignoreTitleTemplate: true,
 };
-
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get('cdn/stories/home', {
-  version: import.meta.env.DEV ? "draft" : "published",
-});
-const content = data.story.content;
 ---
 
 <Layout metadata={metadata}>
@@ -63,8 +53,6 @@ const content = data.story.content;
   <!-- Note Widget ******************* -->
 
   <Note />
-
-  <StoryblokComponent blok={content} />
 
   <!-- Features Widget *************** -->
 

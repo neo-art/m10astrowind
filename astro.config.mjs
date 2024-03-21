@@ -41,7 +41,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     storyblok({
-      accessToken: env.STORYBLOK_TOKEN,
+      accessToken:'QctmVetRhoXSuXRquSTzrwtt',
       bridge: true,
       enableFallbackComponent: true,
       components: {
