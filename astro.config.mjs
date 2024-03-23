@@ -20,6 +20,7 @@ import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/uti
 import { ANALYTICS, SITE } from './src/utils/config.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// eslint-disable-next-line no-unused-vars
 const env = loadEnv("", process.cwd(), 'STORYBLOK');
 
 const whenExternalScripts = (items = []) =>
